@@ -11,7 +11,7 @@ local TextLabel = Instance.new("TextLabel")
 --Properties:
 
 ligmaXD.Name = "ligmaXD"
-ligmaXD.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ligmaXD.Parent = game.CoreGui
 ligmaXD.Enabled = false
 
 ImageLabel.Parent = ligmaXD
