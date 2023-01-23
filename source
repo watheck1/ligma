@@ -1,0 +1,117 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ligmaXD = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+local fr6 = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ligmaXD.Name = "ligmaXD"
+ligmaXD.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ligmaXD.Enabled = false
+
+ImageLabel.Parent = ligmaXD
+ImageLabel.Active = true
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.456064135, 0, 0.408070415, 0)
+ImageLabel.Size = UDim2.new(0, 90, 0, 90)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=12244771678"
+
+fr6.Name = "fr6"
+fr6.Parent = ImageLabel
+fr6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fr6.BackgroundTransparency = 1.000
+fr6.Position = UDim2.new(0, 0, -0.633333325, 0)
+fr6.Size = UDim2.new(0, 90, 0, 50)
+fr6.Visible = false
+fr6.Font = Enum.Font.SourceSansBold
+fr6.Text = "R15 -> R6"
+fr6.TextColor3 = Color3.fromRGB(0, 0, 0)
+fr6.TextScaled = true
+fr6.TextSize = 18.000
+fr6.TextTransparency = 1.000
+fr6.TextWrapped = true
+
+TextLabel.Parent = ImageLabel
+TextLabel.Active = true
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.99999994, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 269, 0, 90)
+TextLabel.Visible = false
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.LineHeight = 1.100
+TextLabel.Text = "Project Ligma by Harkinian and Unverified Run scripts live without filthy modules or converting!                                                              Use the external program to execute scripts.                                                                                                                                                                 Status: Injected"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 15.000
+TextLabel.TextTransparency = 1.000
+TextLabel.TextWrapped = true
+
+-- Scripts:
+
+local function HVUWDC_fake_script() -- fr6.LocalScript 
+	local script = Instance.new('LocalScript', fr6)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(3041175937):r6("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(HVUWDC_fake_script)()
+local function BKAB_fake_script() -- ligmaXD.IntroTween 
+	local script = Instance.new('LocalScript', ligmaXD)
+
+	local ligmaXD = script.Parent.Parent.ligmaXD
+	
+	local img = script.Parent.ImageLabel
+	local TweenService = game:GetService("TweenService")
+	local txt = img.TextLabel
+	local btn = img.fr6
+	wait(1)
+	img:TweenPosition(UDim2.new(0.458, 0, 0.408, 0), "Out", "Linear", 0.4, false)
+	wait(3)
+	img:TweenPosition(UDim2.new(0.01, 0, 0.813, 0), "Out", "Sine", 0.7, false)
+	wait(1)
+	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["BackgroundTransparency"] = 0}):Play()
+	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["TextTransparency"] = 0}):Play()
+	
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then -- R6 detection
+			btn.BackgroundTransparency = 1
+			btn.TextTransparency = 1
+		elseif v.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then -- R15 detection
+			TweenService:Create(btn, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["BackgroundTransparency"] = 0}):Play()
+			TweenService:Create(btn, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["TextTransparency"] = 0}):Play()
+		end
+	end
+	wait(2)
+	while wait() do
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+				btn.Transparency = 1
+			elseif v.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+				btn.Transparency = 0
+			end
+		end
+	end
+end
+coroutine.wrap(BKAB_fake_script)()
+local function QSIUKIN_fake_script() -- ligmaXD.Loaded 
+	local script = Instance.new('LocalScript', ligmaXD)
+
+	if game:IsLoaded() then
+		script.Parent.Parent.ligmaXD.Enabled = true
+	else
+		script.Parent.Parent.ligmaXD.Enabled = false
+	end
+end
+coroutine.wrap(QSIUKIN_fake_script)()
