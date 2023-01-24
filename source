@@ -79,7 +79,7 @@ local function BKAB_fake_script() -- ligmaXD.IntroTween
 	wait(1)
 	img:TweenPosition(UDim2.new(0.458, 0, 0.408, 0), "Out", "Linear", 0.4, false)
 	wait(3)
-	img:TweenPosition(UDim2.new(0.015, 0,0.858, 0), "Out", "Sine", 0., false)
+	img:TweenPosition(UDim2.new(0.015, 0,0.858, 0), "Out", "Sine", 0.7, false)
 	wait(1)
 	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["BackgroundTransparency"] = 0}):Play()
 	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["TextTransparency"] = 0}):Play()
